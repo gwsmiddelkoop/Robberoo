@@ -5,9 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float m_MoveSpeed;
+    private PlayerPickup m_PlayerPickup;
+    private void Start()
+    {
+        m_PlayerPickup = GetComponent<PlayerPickup>();
+    }
     private void FixedUpdate()
     {
-        PlayerMovement();
+        if (!m_PlayerPickup.PickingUp)
+        {
+           PlayerMovement();
+        }
     }
 
     private void Update()
