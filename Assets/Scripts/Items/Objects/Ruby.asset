@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   itemName: Ruby
-  sellValue: 5467
-  buyValue: 0
+  sellValue: 43
+  buyValue: 4343

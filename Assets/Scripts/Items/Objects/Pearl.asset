@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   itemName: Pearl
-  sellValue: 467
-  buyValue: 0
+  sellValue: 4533
+  buyValue: 453
