@@ -21,16 +21,6 @@ public class PlayerPickup : MonoBehaviour
             StartCoroutine(PickUp());
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("ValueItem"))
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                print("ClickedF");
-            }
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,11 +44,11 @@ public class PlayerPickup : MonoBehaviour
 
     private IEnumerator PickUp()
     {
-        //PlayPickUpAnimation
+        //Play PickUpAnimation
         PickingUp = true;
         yield return new WaitForSeconds(2);
-        print("PickedUp");
         m_SelectedItem.SetActive(false);
+        //put item in inventory
         PickingUp = false;
         InCollider = false;
     }
