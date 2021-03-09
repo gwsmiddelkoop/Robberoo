@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3481801973547334369, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
-      propertyPath: m_PressFTxt
-      value: 
-      objectReference: {fileID: 595490513}
     - target: {fileID: 3481801973547334370, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -177,10 +173,6 @@ PrefabInstance:
     - target: {fileID: 3481801973547334370, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3481801973547334371, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
-      propertyPath: m_Color.a
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3481801973547334381, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
       propertyPath: m_Name
@@ -245,11 +237,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7daf725fda502654ab2c6ac157abce82, type: 3}
---- !u!1 &595490513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 595490513, guid: 7daf725fda502654ab2c6ac157abce82, type: 3}
-  m_PrefabInstance: {fileID: 2125940822}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1230291888
 PrefabInstance:
   m_ObjectHideFlags: 0
