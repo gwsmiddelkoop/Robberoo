@@ -7,11 +7,11 @@ using TMPro;
 public class MarketManager : MonoBehaviour
 {
     [Header("Items")]
-    public Item1 Item1;
-    public Item2 Item2;
-    public Item3 Item3;
-    public Item4 Item4;
-    public Item5 Item5;
+    public Item Item1;
+    public Item Item2;
+    public Item Item3;
+    public Item Item4;
+    public Item Item5;
 
     [Header("Item Names")]
     public TextMeshProUGUI Item1Name;
@@ -40,7 +40,7 @@ public class MarketManager : MonoBehaviour
     public Image Item3Icon;
     public Image Item4Icon;
     public Image Item5Icon;
-    
+
     private void Start()
     {
         // Defines all the item names for the market
@@ -88,7 +88,7 @@ public class MarketManager : MonoBehaviour
     #region Item Buy Buttons
     public void BuyItem1()
     {
-        if(InventoryManager.Instance.moneyTotalAmount >= Item1.buyValue)
+        if (InventoryManager.Instance.moneyTotalAmount >= Item1.buyValue)
         {
             InventoryManager.Instance.moneyTotalAmount -= Item1.buyValue;
             InventoryManager.Instance.item1TotalAmount++;
@@ -127,11 +127,11 @@ public class MarketManager : MonoBehaviour
         }
     }
     #endregion
-    
+
     #region Item Sell Buttons
     public void SellItem1()
     {
-        if(InventoryManager.Instance.item1TotalAmount >= 1)
+        if (InventoryManager.Instance.item1TotalAmount >= 1)
         {
             InventoryManager.Instance.moneyTotalAmount += Item1.sellValue;
             InventoryManager.Instance.item1TotalAmount--;
@@ -139,7 +139,7 @@ public class MarketManager : MonoBehaviour
     }
     public void SellItem2()
     {
-        if(InventoryManager.Instance.item2TotalAmount >= 1)
+        if (InventoryManager.Instance.item2TotalAmount >= 1)
         {
             InventoryManager.Instance.moneyTotalAmount += Item2.sellValue;
             InventoryManager.Instance.item2TotalAmount--;

@@ -32,12 +32,12 @@ public class PlayerController : MonoBehaviour
 
         if (!m_PlayerPickup.PickingUp && !m_IsCloaked && dis > 0.15f)
         {
-           PlayerMovement();
+            PlayerMovement();
         }
     }
 
     private void Update()
-    {    
+    {
         if (m_CloakCooldown)
         {
             int temp = (int)m_CloakCooldownCounter;

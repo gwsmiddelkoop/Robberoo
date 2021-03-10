@@ -9,7 +9,11 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     [Header("Items")]
-    public Item Item;
+    public Item Item1;
+    public Item Item2;
+    public Item Item3;
+    public Item Item4;
+    public Item Item5;
 
     [Header("Item Icons")]
     public Image Item1Icon;
@@ -89,7 +93,7 @@ public class InventoryManager : MonoBehaviour
         MoneyAmountTxt.text = string.Format("Total Cash: €{0}", moneyTotalAmount);
 
         //TEST
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             item1TotalAmount++;
         }
