@@ -9,11 +9,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     [Header("Items")]
-    public Item1 Item1;
-    public Item2 Item2;
-    public Item3 Item3;
-    public Item4 Item4;
-    public Item5 Item5;
+    public Item Item;
 
     [Header("Item Icons")]
     public Image Item1Icon;
