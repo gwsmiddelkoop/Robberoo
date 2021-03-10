@@ -92,6 +92,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount -= Item1.buyValue;
             InventoryManager.Instance.item1TotalAmount++;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void BuyItem2()
@@ -100,6 +101,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount -= Item2.buyValue;
             InventoryManager.Instance.item2TotalAmount++;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void BuyItem3()
@@ -108,6 +110,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount -= Item3.buyValue;
             InventoryManager.Instance.item3TotalAmount++;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void BuyItem4()
@@ -116,6 +119,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount -= Item4.buyValue;
             InventoryManager.Instance.item4TotalAmount++;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void BuyItem5()
@@ -124,6 +128,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount -= Item5.buyValue;
             InventoryManager.Instance.item5TotalAmount++;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     #endregion
@@ -135,6 +140,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount += Item1.sellValue;
             InventoryManager.Instance.item1TotalAmount--;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void SellItem2()
@@ -143,6 +149,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount += Item2.sellValue;
             InventoryManager.Instance.item2TotalAmount--;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void SellItem3()
@@ -151,6 +158,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount += Item3.sellValue;
             InventoryManager.Instance.item3TotalAmount--;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void SellItem4()
@@ -159,6 +167,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount += Item4.sellValue;
             InventoryManager.Instance.item4TotalAmount--;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     public void SellItem5()
@@ -167,6 +176,7 @@ public class MarketManager : MonoBehaviour
         {
             InventoryManager.Instance.moneyTotalAmount += Item5.sellValue;
             InventoryManager.Instance.item5TotalAmount--;
+            InventoryManager.Instance.ConvertInventory();
         }
     }
     #endregion

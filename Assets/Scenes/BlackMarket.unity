@@ -4713,6 +4713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65de7d6961de14041afade80649f405a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInventory: {fileID: 11400000, guid: 12ae9f82bd920bc4a8fcf32efc0f725f, type: 2}
   Item1: {fileID: 11400000, guid: 70f9b8460e4522f4b9ba18413fd94dfe, type: 2}
   Item2: {fileID: 11400000, guid: 084e13b481321b34a8ad8f52912c5a15, type: 2}
   Item3: {fileID: 11400000, guid: 80eafa81c807b4a4f94fe1a1f4567498, type: 2}

@@ -277,6 +277,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1312125086}
     - target: {fileID: 7859180482320567062, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
+      propertyPath: m_PlayerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 12ae9f82bd920bc4a8fcf32efc0f725f, type: 2}
+    - target: {fileID: 7859180482320567062, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
       propertyPath: m_CloakCooldownText
       value: 
       objectReference: {fileID: 1275681561}
@@ -322,6 +326,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
+--- !u!1 &244400510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7859180482320567063, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
+  m_PrefabInstance: {fileID: 244400509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &244400511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244400510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd6454a4dc936947a6db89405dc8eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabbedDiamonds: 0
+  GrabbedEmeralds: 0
+  GrabbedGold: 0
+  GrabbedPeals: 0
+  GrabbedRubys: 0
 --- !u!1 &272454017
 GameObject:
   m_ObjectHideFlags: 0

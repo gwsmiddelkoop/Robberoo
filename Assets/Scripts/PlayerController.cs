@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_CloakCooldownText;
     [SerializeField] private GameObject m_CloakImg;
     [SerializeField] private GameObject m_ExitText;
+    [SerializeField] private PlayerInventory m_PlayerInventory;
     private PlayerPickup m_PlayerPickup;
     private SpriteRenderer m_SpriteRenderer;
     private Color m_PlayerColor;
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T) && m_InExitRange)
         {
+            ConvertToInventory();
             SceneManager.LoadScene(1);
         }
         PlayerDirection();
@@ -124,5 +126,14 @@ public class PlayerController : MonoBehaviour
     {
         float distance = Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
         return distance;
+    }
+
+    private void ConvertToInventory()
+    {
+        m_PlayerInventory.Diamond += InventoryAdder.instance.GrabbedDiamonds;
+        m_PlayerInventory.Emerald += InventoryAdder.instance.GrabbedEmeralds;
+        m_PlayerInventory.Gold += InventoryAdder.instance.GrabbedGold;
+        m_PlayerInventory.Pearl += InventoryAdder.instance.GrabbedPeals;
+        m_PlayerInventory.Ruby += InventoryAdder.instance.GrabbedRubys;
     }
 }

@@ -7,6 +7,7 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
+    public PlayerInventory PlayerInventory;
 
     [Header("Items")]
     public Item Item1;
@@ -60,6 +61,13 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        item1TotalAmount = PlayerInventory.Diamond;
+        item2TotalAmount = PlayerInventory.Emerald;
+        item3TotalAmount = PlayerInventory.Gold;
+        item4TotalAmount = PlayerInventory.Pearl;
+        item5TotalAmount = PlayerInventory.Ruby;
+        moneyTotalAmount = PlayerInventory.TotalMoney;
+
         // Defines all the item names for the inventory
         Item1Name.text = Item1.itemName;
         Item2Name.text = Item2.itemName;
@@ -97,5 +105,15 @@ public class InventoryManager : MonoBehaviour
         {
             item1TotalAmount++;
         }
+    }
+
+    public void ConvertInventory()
+    {
+         PlayerInventory.Diamond = item1TotalAmount;
+         PlayerInventory.Emerald = item2TotalAmount;
+         PlayerInventory.Gold = item3TotalAmount;
+         PlayerInventory.Pearl = item4TotalAmount;
+         PlayerInventory.Ruby = item5TotalAmount;
+         PlayerInventory.TotalMoney = moneyTotalAmount;
     }
 }

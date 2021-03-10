@@ -48,8 +48,32 @@ public class PlayerPickup : MonoBehaviour
         PickingUp = true;
         yield return new WaitForSeconds(2);
         m_SelectedItem.SetActive(false);
-        //put item in inventory
+        CheckWhatItem();
         PickingUp = false;
         InCollider = false;
+    }
+
+    private void CheckWhatItem()
+    {
+        if (m_SelectedItem.GetComponent<PickUpItem>().ChosenItem.itemName == "Diamond")
+        {
+            InventoryAdder.instance.GrabbedDiamonds += 1; 
+        }
+        else if (m_SelectedItem.GetComponent<PickUpItem>().ChosenItem.itemName == "Emerald")
+        {
+            InventoryAdder.instance.GrabbedEmeralds += 1;
+        }
+        else if (m_SelectedItem.GetComponent<PickUpItem>().ChosenItem.itemName == "Gold")
+        {
+            InventoryAdder.instance.GrabbedGold += 1;
+        }
+        else if (m_SelectedItem.GetComponent<PickUpItem>().ChosenItem.itemName == "Preal")
+        {
+            InventoryAdder.instance.GrabbedPeals += 1;
+        }
+        else if (m_SelectedItem.GetComponent<PickUpItem>().ChosenItem.itemName == "Ruby")
+        {
+            InventoryAdder.instance.GrabbedRubys += 1;
+        }
     }
 }
