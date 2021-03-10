@@ -20,6 +20,7 @@ public class FOW : MonoBehaviour
         InRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius);
 
         visiblePlayer.Clear();
+        GetComponent<AIPatrolModus>().IsPatrolModus = true;
 
         for (int i = 0; i < InRadius.Length; i++)
         {
@@ -35,10 +36,6 @@ public class FOW : MonoBehaviour
                     {
                         visiblePlayer.Add(player);
                         GetComponent<AIPatrolModus>().IsPatrolModus = false;
-                    }
-                    else
-                    {
-                        GetComponent<AIPatrolModus>().IsPatrolModus = true;
                     }
                 }
             }
