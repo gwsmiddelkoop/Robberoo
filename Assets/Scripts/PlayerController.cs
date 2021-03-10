@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer m_SpriteRenderer;
     private Color m_PlayerColor;
     private Color m_CloakColor;
-    private bool m_IsCloaked;
+    public bool m_IsCloaked;
     private float m_CloakCooldownCounter;
     private bool m_CloakCooldown;
     private void Start()
@@ -32,12 +32,12 @@ public class PlayerController : MonoBehaviour
 
         if (!m_PlayerPickup.PickingUp && !m_IsCloaked && dis > 0.15f)
         {
-           PlayerMovement();
+            PlayerMovement();
         }
     }
 
     private void Update()
-    {    
+    {
         if (m_CloakCooldown)
         {
             int temp = (int)m_CloakCooldownCounter;

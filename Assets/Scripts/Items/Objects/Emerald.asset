@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0d5c61e75dd9f41b75119bca45953f, type: 3}
+  m_Script: {fileID: 11500000, guid: 82e3c130ae31f3e469abe9867a2bf8eb, type: 3}
   m_Name: Emerald
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: f901dd81056a59649a420c8dc25be410, type: 3}
   itemName: Emerald
-  sellValue: 8448
-  buyValue: 10270
+  sellValue: 0
+  buyValue: 0
