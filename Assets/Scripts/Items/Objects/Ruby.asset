@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d587ac56175444bb7361acc3596f77, type: 3}
   m_Name: Ruby
   m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 7a684be4b7c1d6943bcd653d1363ca8c, type: 3}
   itemName: Ruby
-  sellValue: 0
-  buyValue: 0
+  sellValue: 16090
+  buyValue: 18505
