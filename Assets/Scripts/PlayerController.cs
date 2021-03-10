@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
@@ -8,9 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_CloakCooldownTimer = 5;
     [SerializeField] private TextMeshProUGUI m_CloakCooldownText;
+    [SerializeField] private GameObject m_CloakImg;
     private PlayerPickup m_PlayerPickup;
     private SpriteRenderer m_SpriteRenderer;
     private Color m_PlayerColor;
+    private Color m_CloakColor;
     private bool m_IsCloaked;
     private float m_CloakCooldownCounter;
     private bool m_CloakCooldown;
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         m_PlayerPickup = GetComponent<PlayerPickup>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_CloakColor = m_CloakImg.GetComponent<Image>().color;
         m_PlayerColor = m_SpriteRenderer.color;
         m_CloakCooldown = false;
         m_CloakCooldownCounter = m_CloakCooldownTimer;
@@ -33,14 +37,22 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {    
         if (m_CloakCooldown)
         {
+            int temp = (int)m_CloakCooldownCounter;
+            m_CloakCooldownText.text = temp.ToString();
+            m_CloakCooldownText.gameObject.SetActive(true);
+            m_CloakColor.a = 0.5f;
+            m_CloakImg.GetComponent<Image>().color = m_CloakColor;
             m_CloakCooldownCounter -= Time.deltaTime;
             if (m_CloakCooldownCounter < 0)
             {
                 m_CloakCooldownCounter = m_CloakCooldownTimer;
+                m_CloakCooldownText.gameObject.SetActive(false);
                 m_CloakCooldown = false;
+                m_CloakColor.a = 1f;
+                m_CloakImg.GetComponent<Image>().color = m_CloakColor;
             }
         }
         PlayerDirection();
