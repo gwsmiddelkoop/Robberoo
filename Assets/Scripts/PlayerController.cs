@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float m_MoveSpeed;
+    [SerializeField] private float m_CloakCooldownTimer = 5;
+    [SerializeField] private TextMeshProUGUI m_CloakCooldownText;
     private PlayerPickup m_PlayerPickup;
     private SpriteRenderer m_SpriteRenderer;
     private Color m_PlayerColor;
     private bool m_IsCloaked;
+    private float m_CloakCooldownCounter;
+    private bool m_CloakCooldown;
     private void Start()
     {
         m_PlayerPickup = GetComponent<PlayerPickup>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_PlayerColor = m_SpriteRenderer.color;
+        m_CloakCooldown = false;
+        m_CloakCooldownCounter = m_CloakCooldownTimer;
     }
     private void FixedUpdate()
     {
@@ -27,7 +34,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-       
+        if (m_CloakCooldown)
+        {
+            m_CloakCooldownCounter -= Time.deltaTime;
+            if (m_CloakCooldownCounter < 0)
+            {
+                m_CloakCooldownCounter = m_CloakCooldownTimer;
+                m_CloakCooldown = false;
+            }
+        }
         PlayerDirection();
         Cloak();
     }
@@ -49,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     private void Cloak()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !m_CloakCooldown)
         {
             m_PlayerColor.a = 0.3f;
             m_SpriteRenderer.color = m_PlayerColor;
@@ -61,6 +76,7 @@ public class PlayerController : MonoBehaviour
             m_PlayerColor.a = 1f;
             m_SpriteRenderer.color = m_PlayerColor;
             m_IsCloaked = false;
+            m_CloakCooldown = true;
         }
     }
 
