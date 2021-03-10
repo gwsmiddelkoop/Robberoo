@@ -6,6 +6,8 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance;
+
     [Header("Items")]
     public Item1 Item1;
     public Item2 Item2;
@@ -26,6 +28,7 @@ public class InventoryManager : MonoBehaviour
     public int item3TotalAmount;
     public int item4TotalAmount;
     public int item5TotalAmount;
+    public int moneyTotalAmount;
 
     [Header("Item Amount Text")]
     public TextMeshProUGUI Item1AmountTxt;
@@ -33,6 +36,7 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI Item3AmountTxt;
     public TextMeshProUGUI Item4AmountTxt;
     public TextMeshProUGUI Item5AmountTxt;
+    public TextMeshProUGUI MoneyAmountTxt;
 
     [Header("Item Names")]
     public TextMeshProUGUI Item1Name;
@@ -40,6 +44,19 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI Item3Name;
     public TextMeshProUGUI Item4Name;
     public TextMeshProUGUI Item5Name;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
@@ -63,5 +80,22 @@ public class InventoryManager : MonoBehaviour
         Item3AmountTxt.text = string.Format(item3TotalAmount.ToString());
         Item4AmountTxt.text = string.Format(item4TotalAmount.ToString());
         Item5AmountTxt.text = string.Format(item5TotalAmount.ToString());
+    }
+
+    private void Update()
+    {
+        // Sets the total amounts of the items
+        Item1AmountTxt.text = string.Format(item1TotalAmount.ToString());
+        Item2AmountTxt.text = string.Format(item2TotalAmount.ToString());
+        Item3AmountTxt.text = string.Format(item3TotalAmount.ToString());
+        Item4AmountTxt.text = string.Format(item4TotalAmount.ToString());
+        Item5AmountTxt.text = string.Format(item5TotalAmount.ToString());
+        MoneyAmountTxt.text = string.Format("Total Cash: €{0}", moneyTotalAmount);
+
+        //TEST
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            item1TotalAmount++;
+        }
     }
 }
