@@ -42,6 +42,19 @@ public class MarketManager : MonoBehaviour
         Item4Name.text = PearlItem.itemName;
         Item5Name.text = RubyItem.itemName;
 
+        // Sets all the item values to a random number
+        DiamondItem.buyValue = Random.Range(6000, 10000);
+        EmeraldItem.buyValue = Random.Range(8000, 15000);
+        GoldItem.buyValue = Random.Range(5000, 7000);
+        PearlItem.buyValue = Random.Range(5000, 8000);
+        RubyItem.buyValue = Random.Range(5000, 20000);
+
+        DiamondItem.sellValue = (DiamondItem.buyValue - Random.Range(1000, 4000));
+        EmeraldItem.sellValue = (EmeraldItem.buyValue - Random.Range(1000, 4000));
+        GoldItem.sellValue = (GoldItem.buyValue - Random.Range(1000, 4000));
+        PearlItem.sellValue = (PearlItem.buyValue - Random.Range(1000, 4000));
+        RubyItem.sellValue = (RubyItem.buyValue - Random.Range(1000, 4000));
+
         // Defines the item selling values
         Item1SellValue.text = string.Format("€" + DiamondItem.sellValue.ToString());
         Item2SellValue.text = string.Format("€" + EmeraldItem.sellValue.ToString());

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   itemName: Gold
-  sellValue: 4536
-  buyValue: 4345
+  sellValue: 0
+  buyValue: 0
