@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e3c130ae31f3e469abe9867a2bf8eb, type: 3}
   m_Name: Diamond
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 5f9647a21648b4642a06c145ee4d6efc, type: 3}
+  Icon: {fileID: 21300000, guid: 982fee91cae83fa4ebf4dfc855d1a78d, type: 3}
   itemName: Diamond
-  sellValue: 0
-  buyValue: 0
+  sellValue: 5671
+  buyValue: 7274

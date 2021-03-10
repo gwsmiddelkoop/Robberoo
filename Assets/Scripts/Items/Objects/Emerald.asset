@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e3c130ae31f3e469abe9867a2bf8eb, type: 3}
   m_Name: Emerald
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: f901dd81056a59649a420c8dc25be410, type: 3}
+  Icon: {fileID: 21300000, guid: 9a8cd079e88b9144b84b6bbc713f8ca5, type: 3}
   itemName: Emerald
-  sellValue: 0
-  buyValue: 0
+  sellValue: 10542
+  buyValue: 12862

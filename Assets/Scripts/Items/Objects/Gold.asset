@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e3c130ae31f3e469abe9867a2bf8eb, type: 3}
   m_Name: Gold
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 2fccdb612f63d434eb3df58d17d67c41, type: 3}
+  Icon: {fileID: 21300000, guid: 1e96d2cd0ae054d4bbc6b7dcf24457e2, type: 3}
   itemName: Gold
-  sellValue: 0
-  buyValue: 0
+  sellValue: 2872
+  buyValue: 5018
