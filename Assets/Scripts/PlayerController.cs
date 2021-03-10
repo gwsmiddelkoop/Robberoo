@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_CloakCooldownTimer = 5;
     [SerializeField] private TextMeshProUGUI m_CloakCooldownText;
     [SerializeField] private GameObject m_CloakImg;
+    [SerializeField] private GameObject m_ExitText;
     private PlayerPickup m_PlayerPickup;
     private SpriteRenderer m_SpriteRenderer;
     private Color m_PlayerColor;
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool m_IsCloaked;
     private float m_CloakCooldownCounter;
     private bool m_CloakCooldown;
+    private bool m_InExitRange;
     private void Start()
     {
         m_PlayerPickup = GetComponent<PlayerPickup>();
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
         m_CloakColor = m_CloakImg.GetComponent<Image>().color;
         m_PlayerColor = m_SpriteRenderer.color;
         m_CloakCooldown = false;
+        m_InExitRange = false;
+        m_ExitText.SetActive(false);
         m_CloakCooldownCounter = m_CloakCooldownTimer;
     }
     private void FixedUpdate()
@@ -55,8 +60,31 @@ public class PlayerController : MonoBehaviour
                 m_CloakImg.GetComponent<Image>().color = m_CloakColor;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.T) && m_InExitRange)
+        {
+            SceneManager.LoadScene(1);
+        }
         PlayerDirection();
         Cloak();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Exit"))
+        {
+            m_ExitText.SetActive(true);
+            m_InExitRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Exit"))
+        {
+            m_ExitText.SetActive(false);
+            m_InExitRange = false;
+        }
     }
 
     private void PlayerMovement()
