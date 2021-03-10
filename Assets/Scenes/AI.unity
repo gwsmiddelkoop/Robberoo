@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 206458790}
   - component: {fileID: 206458789}
   - component: {fileID: 206458788}
-  m_Layer: 4
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ MonoBehaviour:
     m_Bits: 64
   playermask:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 128
   visiblePlayer: []
 --- !u!114 &1446505118
 MonoBehaviour:

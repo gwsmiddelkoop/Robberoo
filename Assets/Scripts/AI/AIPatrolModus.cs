@@ -6,12 +6,12 @@ public class AIPatrolModus : MonoBehaviour
 {
     [Header("Waypoint")]
     [SerializeField] public GameObject[] m_PatrolPoints;
-    [SerializeField] private float m_MoveSpeed;
+    public float m_MoveSpeed;
     public int m_PatrolPointIndex;
 
     [Header("Modus")]
     public bool IsPatrolModus = true;
-    bool BackWards;
+    private bool BackWards;
 
     [Header("WatchAround")]
     private float Timer;
@@ -35,20 +35,10 @@ public class AIPatrolModus : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, m_PatrolPoints[m_PatrolPointIndex].transform.position, m_MoveSpeed * Time.deltaTime);
 
-        //if (BackWards == false)
-        //{
         if (transform.position == m_PatrolPoints[m_PatrolPointIndex].transform.position)
         {
             RondKijken();
         }
-        //}
-        //else
-        //{
-        //    if (transform.position == m_PatrolPoints[m_PatrolPointIndex].transform.position)
-        //    {
-        //        m_PatrolPointIndex -= 1;
-        //    }
-        //}
 
         if (m_PatrolPointIndex == m_PatrolPoints.Length)
         {
