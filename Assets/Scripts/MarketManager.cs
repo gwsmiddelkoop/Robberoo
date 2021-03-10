@@ -84,4 +84,90 @@ public class MarketManager : MonoBehaviour
         Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
         Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
     }
+
+    #region Item Buy Buttons
+    public void BuyItem1()
+    {
+        if(InventoryManager.Instance.moneyTotalAmount >= Item1.buyValue)
+        {
+            InventoryManager.Instance.moneyTotalAmount -= Item1.buyValue;
+            InventoryManager.Instance.item1TotalAmount++;
+        }
+    }
+    public void BuyItem2()
+    {
+        if (InventoryManager.Instance.moneyTotalAmount >= Item2.buyValue)
+        {
+            InventoryManager.Instance.moneyTotalAmount -= Item2.buyValue;
+            InventoryManager.Instance.item2TotalAmount++;
+        }
+    }
+    public void BuyItem3()
+    {
+        if (InventoryManager.Instance.moneyTotalAmount >= Item3.buyValue)
+        {
+            InventoryManager.Instance.moneyTotalAmount -= Item3.buyValue;
+            InventoryManager.Instance.item3TotalAmount++;
+        }
+    }
+    public void BuyItem4()
+    {
+        if (InventoryManager.Instance.moneyTotalAmount >= Item4.buyValue)
+        {
+            InventoryManager.Instance.moneyTotalAmount -= Item4.buyValue;
+            InventoryManager.Instance.item4TotalAmount++;
+        }
+    }
+    public void BuyItem5()
+    {
+        if (InventoryManager.Instance.moneyTotalAmount >= Item5.buyValue)
+        {
+            InventoryManager.Instance.moneyTotalAmount -= Item5.buyValue;
+            InventoryManager.Instance.item5TotalAmount++;
+        }
+    }
+    #endregion
+    
+    #region Item Sell Buttons
+    public void SellItem1()
+    {
+        if(InventoryManager.Instance.item1TotalAmount >= 1)
+        {
+            InventoryManager.Instance.moneyTotalAmount += Item1.sellValue;
+            InventoryManager.Instance.item1TotalAmount--;
+        }
+    }
+    public void SellItem2()
+    {
+        if(InventoryManager.Instance.item2TotalAmount >= 1)
+        {
+            InventoryManager.Instance.moneyTotalAmount += Item2.sellValue;
+            InventoryManager.Instance.item2TotalAmount--;
+        }
+    }
+    public void SellItem3()
+    {
+        if (InventoryManager.Instance.item3TotalAmount >= 1)
+        {
+            InventoryManager.Instance.moneyTotalAmount += Item3.sellValue;
+            InventoryManager.Instance.item3TotalAmount--;
+        }
+    }
+    public void SellItem4()
+    {
+        if (InventoryManager.Instance.item4TotalAmount >= 1)
+        {
+            InventoryManager.Instance.moneyTotalAmount += Item4.sellValue;
+            InventoryManager.Instance.item4TotalAmount--;
+        }
+    }
+    public void SellItem5()
+    {
+        if (InventoryManager.Instance.item5TotalAmount >= 1)
+        {
+            InventoryManager.Instance.moneyTotalAmount += Item5.sellValue;
+            InventoryManager.Instance.item5TotalAmount--;
+        }
+    }
+    #endregion
 }
