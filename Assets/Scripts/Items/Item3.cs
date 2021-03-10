@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Items", menuName = "Items/Diamond")]
-public class Item_Diamond : ScriptableObject
+[CreateAssetMenu(fileName = "Items", menuName = "Items/Gold")]
+public class Item2 : ScriptableObject
 {
-    public SpriteRenderer Icon;
+    public Sprite Icon;
     public string itemName;
     public int sellValue;
     public int buyValue;

@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class MarketManager : MonoBehaviour
 {
     [Header("Items")]
-    public Item_Diamond DiamondItem;
-    public Item_Emerald EmeraldItem;
-    public Item_Gold GoldItem;
-    public Item_Pearl PearlItem;
-    public Item_Ruby RubyItem;
+    public Item1 Item1;
+    public Item2 Item2;
+    public Item3 Item3;
+    public Item4 Item4;
+    public Item5 Item5;
 
     [Header("Item Names")]
     public TextMeshProUGUI Item1Name;
@@ -33,40 +34,54 @@ public class MarketManager : MonoBehaviour
     public TextMeshProUGUI Item4BuyValue;
     public TextMeshProUGUI Item5BuyValue;
 
+    [Header("Item Icons")]
+    public Image Item1Icon;
+    public Image Item2Icon;
+    public Image Item3Icon;
+    public Image Item4Icon;
+    public Image Item5Icon;
+    
     private void Start()
     {
         // Defines all the item names for the market
-        Item1Name.text = DiamondItem.itemName;
-        Item2Name.text = EmeraldItem.itemName;
-        Item3Name.text = GoldItem.itemName;
-        Item4Name.text = PearlItem.itemName;
-        Item5Name.text = RubyItem.itemName;
+        Item1Name.text = Item1.itemName;
+        Item2Name.text = Item2.itemName;
+        Item3Name.text = Item3.itemName;
+        Item4Name.text = Item4.itemName;
+        Item5Name.text = Item5.itemName;
+
+        // Sets all the item icons
+        Item1Icon.sprite = Item1.Icon;
+        Item2Icon.sprite = Item2.Icon;
+        Item3Icon.sprite = Item3.Icon;
+        Item4Icon.sprite = Item4.Icon;
+        Item5Icon.sprite = Item5.Icon;
 
         // Sets all the item values to a random number
-        DiamondItem.buyValue = Random.Range(6000, 10000);
-        EmeraldItem.buyValue = Random.Range(8000, 15000);
-        GoldItem.buyValue = Random.Range(5000, 7000);
-        PearlItem.buyValue = Random.Range(5000, 8000);
-        RubyItem.buyValue = Random.Range(5000, 20000);
+        Item1.buyValue = Random.Range(6000, 10000);
+        Item2.buyValue = Random.Range(8000, 15000);
+        Item3.buyValue = Random.Range(5000, 7000);
+        Item4.buyValue = Random.Range(5000, 8000);
+        Item5.buyValue = Random.Range(5000, 20000);
 
-        DiamondItem.sellValue = (DiamondItem.buyValue - Random.Range(1000, 4000));
-        EmeraldItem.sellValue = (EmeraldItem.buyValue - Random.Range(1000, 4000));
-        GoldItem.sellValue = (GoldItem.buyValue - Random.Range(1000, 4000));
-        PearlItem.sellValue = (PearlItem.buyValue - Random.Range(1000, 4000));
-        RubyItem.sellValue = (RubyItem.buyValue - Random.Range(1000, 4000));
+        Item1.sellValue = (Item1.buyValue - Random.Range(1000, 4000));
+        Item2.sellValue = (Item2.buyValue - Random.Range(1000, 4000));
+        Item3.sellValue = (Item3.buyValue - Random.Range(1000, 4000));
+        Item4.sellValue = (Item4.buyValue - Random.Range(1000, 4000));
+        Item5.sellValue = (Item5.buyValue - Random.Range(1000, 4000));
 
         // Defines the item selling values
-        Item1SellValue.text = string.Format("€" + DiamondItem.sellValue.ToString());
-        Item2SellValue.text = string.Format("€" + EmeraldItem.sellValue.ToString());
-        Item3SellValue.text = string.Format("€" + GoldItem.sellValue.ToString());
-        Item4SellValue.text = string.Format("€" + PearlItem.sellValue.ToString());
-        Item5SellValue.text = string.Format("€" + RubyItem.sellValue.ToString());
+        Item1SellValue.text = string.Format("€" + Item1.sellValue.ToString());
+        Item2SellValue.text = string.Format("€" + Item2.sellValue.ToString());
+        Item3SellValue.text = string.Format("€" + Item3.sellValue.ToString());
+        Item4SellValue.text = string.Format("€" + Item4.sellValue.ToString());
+        Item5SellValue.text = string.Format("€" + Item5.sellValue.ToString());
 
         // Defines the item buying values
-        Item1BuyValue.text = string.Format("€" + DiamondItem.buyValue.ToString());
-        Item2BuyValue.text = string.Format("€" + EmeraldItem.buyValue.ToString());
-        Item3BuyValue.text = string.Format("€" + GoldItem.buyValue.ToString());
-        Item4BuyValue.text = string.Format("€" + PearlItem.buyValue.ToString());
-        Item5BuyValue.text = string.Format("€" + RubyItem.buyValue.ToString());
+        Item1BuyValue.text = string.Format("€" + Item1.buyValue.ToString());
+        Item2BuyValue.text = string.Format("€" + Item2.buyValue.ToString());
+        Item3BuyValue.text = string.Format("€" + Item3.buyValue.ToString());
+        Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
+        Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
     }
 }

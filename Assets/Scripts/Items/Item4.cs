@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Items", menuName = "Items/Ruby")]
-public class Item_Ruby : ScriptableObject
+[CreateAssetMenu(fileName = "Items", menuName = "Items/Pearl")]
+public class Item3 : ScriptableObject
 {
-    public SpriteRenderer Icon;
+    public Sprite Icon;
     public string itemName;
     public int sellValue;
     public int buyValue;
