@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ValueItem
   - Exit
+  - Fill
   layers:
   - Default
   - TransparentFX

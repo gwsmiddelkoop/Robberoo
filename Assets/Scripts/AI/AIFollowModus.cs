@@ -20,7 +20,7 @@ public class AIFollowModus : MonoBehaviour
     {
         if (m_Patrol.IsPatrolModus == false)
         {
-            if (m_Target.GetComponent<PlayerController>().m_IsCloaked == false)
+            if (m_Target.GetComponent<PlayerController>().isCloaked == false)
             {
                 Vector3 dir = m_Target.transform.position - transform.position;
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

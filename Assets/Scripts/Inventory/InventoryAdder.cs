@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryAdder : MonoBehaviour
 {
-
+    // singleton
     public static InventoryAdder instance;
 
     private void Awake()
@@ -15,9 +13,10 @@ public class InventoryAdder : MonoBehaviour
         }
     }
 
-    public int GrabbedDiamonds;
-    public int GrabbedEmeralds;
-    public int GrabbedGold;
-    public int GrabbedPeals;
-    public int GrabbedRubys;
+    [Header("Grabbed Items Amount")]
+    public int grabbedDiamonds;
+    public int grabbedEmeralds;
+    public int grabbedGold;
+    public int grabbedPearls;
+    public int grabbedRubys;
 }

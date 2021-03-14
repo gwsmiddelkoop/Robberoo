@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
+    [Header("Properties")]
     public Transform player;
+    [Space]
     public Vector3 offset;
 
     void LateUpdate()
