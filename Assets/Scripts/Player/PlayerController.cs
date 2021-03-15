@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Other References")]
     public GameObject gameOverObject;
+    public GameObject exitText;
     public PlayerInventory playerInventory;
 
     private PlayerPickup playerPickUp;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         // set overlays / other stuff to inactive
         gameOverObject.SetActive(false);
+        exitText.SetActive(false);
         cloakCooldownTimerUI.SetActive(false);
 
         // reset timers
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T) && inExitRange)
         {
             ConvertToInventory();
-            SceneManager.LoadScene(1);
+            SceneLoader.Instance.LoadScene(2);
         }
 
         PlayerDirection();
@@ -98,7 +100,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Exit"))
         {
-            gameOverObject.SetActive(true);
+            exitText.SetActive(true);
             inExitRange = true;
         }
     }
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Exit"))
         {
-            gameOverObject.SetActive(false);
+            exitText.SetActive(false);
             inExitRange = false;
         }
     }
