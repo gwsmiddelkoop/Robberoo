@@ -39,6 +39,13 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI Item5AmountTxt;
     public TextMeshProUGUI MoneyAmountTxt;
 
+    [Header("Item Amount Black Market Text")]
+    public TextMeshProUGUI Item1AmountMarketTxt;
+    public TextMeshProUGUI Item2AmountMarketTxt;
+    public TextMeshProUGUI Item3AmountMarketTxt;
+    public TextMeshProUGUI Item4AmountMarketTxt;
+    public TextMeshProUGUI Item5AmountMarketTxt;
+
     [Header("Item Names")]
     public TextMeshProUGUI Item1Name;
     public TextMeshProUGUI Item2Name;
@@ -82,29 +89,18 @@ public class InventoryManager : MonoBehaviour
         Item4Icon.sprite = Item4.Icon;
         Item5Icon.sprite = Item5.Icon;
 
-        // Sets the total amounts of the items
-        Item1AmountTxt.text = string.Format(item1TotalAmount.ToString());
-        Item2AmountTxt.text = string.Format(item2TotalAmount.ToString());
-        Item3AmountTxt.text = string.Format(item3TotalAmount.ToString());
-        Item4AmountTxt.text = string.Format(item4TotalAmount.ToString());
-        Item5AmountTxt.text = string.Format(item5TotalAmount.ToString());
+        SetVisualAmount();
     }
 
     private void Update()
     {
-        // Sets the total amounts of the items
-        Item1AmountTxt.text = string.Format(item1TotalAmount.ToString());
-        Item2AmountTxt.text = string.Format(item2TotalAmount.ToString());
-        Item3AmountTxt.text = string.Format(item3TotalAmount.ToString());
-        Item4AmountTxt.text = string.Format(item4TotalAmount.ToString());
-        Item5AmountTxt.text = string.Format(item5TotalAmount.ToString());
-        MoneyAmountTxt.text = string.Format("Total Cash: €{0}", moneyTotalAmount);
+        SetVisualAmount();
 
-        //TEST
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            item1TotalAmount++;
-        }
+        ////TEST
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    item1TotalAmount++;
+        //}
     }
 
     public void ConvertInventory()
@@ -115,5 +111,23 @@ public class InventoryManager : MonoBehaviour
          PlayerInventory.Pearl = item4TotalAmount;
          PlayerInventory.Ruby = item5TotalAmount;
          PlayerInventory.TotalMoney = moneyTotalAmount;
+    }
+
+    private void SetVisualAmount()
+    {
+        // Sets the total amounts of the items
+        Item1AmountTxt.text = string.Format(item1TotalAmount.ToString());
+        Item2AmountTxt.text = string.Format(item2TotalAmount.ToString());
+        Item3AmountTxt.text = string.Format(item3TotalAmount.ToString());
+        Item4AmountTxt.text = string.Format(item4TotalAmount.ToString());
+        Item5AmountTxt.text = string.Format(item5TotalAmount.ToString());
+        MoneyAmountTxt.text = string.Format("Total Cash: €{0}", moneyTotalAmount);
+
+        // market
+        Item1AmountMarketTxt.text = string.Format(item1TotalAmount.ToString());
+        Item2AmountMarketTxt.text = string.Format(item2TotalAmount.ToString());
+        Item3AmountMarketTxt.text = string.Format(item3TotalAmount.ToString());
+        Item4AmountMarketTxt.text = string.Format(item4TotalAmount.ToString());
+        Item5AmountMarketTxt.text = string.Format(item5TotalAmount.ToString());
     }
 }
