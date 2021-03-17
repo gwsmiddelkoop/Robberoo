@@ -10,6 +10,8 @@ public class FOW : MonoBehaviour
     Collider2D[] InRadius;
     public List<Transform> visiblePlayer = new List<Transform>();
 
+    public bool IsSeeingPlayer;
+
     private void FixedUpdate()
     {
         FindVisiblePlayer();
@@ -21,6 +23,7 @@ public class FOW : MonoBehaviour
 
         visiblePlayer.Clear();
         GetComponent<AIPatrolModus>().IsPatrolModus = true;//
+        IsSeeingPlayer = false;
 
         for (int i = 0; i < InRadius.Length; i++)
         {
@@ -35,7 +38,8 @@ public class FOW : MonoBehaviour
                     if (Physics2D.Raycast(transform.position, dirTarget, distancePlayer, playermask))
                     {
                         if (FindObjectOfType<PlayerController>().isCloaked == false)
-                        {   
+                        {
+                            IsSeeingPlayer = true;
                             visiblePlayer.Add(player);
                             GetComponent<AIPatrolModus>().IsPatrolModus = false;
                         }
