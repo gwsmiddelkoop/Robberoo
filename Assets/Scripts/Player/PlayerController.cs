@@ -108,6 +108,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject);
+
         if (collision.gameObject.CompareTag("Exit"))
         {
             exitText.SetActive(true);

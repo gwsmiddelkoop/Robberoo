@@ -75,12 +75,4 @@ public class AIPatrolModus : MonoBehaviour
             Timer = 0;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)//Verbeteren na prototype
-    {
-        if(collision.tag == "CantSee")
-        {
-            
-        }
-    }
 }
