@@ -35,14 +35,4 @@ public class ButtonManager : MonoBehaviour
             marketIsOpen = false;
         }
     }
-
-    public void OpenInventory()
-    {
-        // Open inventory on button click
-    }
-
-    public void LoadMenu()
-    {
-        // Open main menu on button click
-    }
 }
