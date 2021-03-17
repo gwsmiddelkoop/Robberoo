@@ -6364,6 +6364,8 @@ GameObject:
   - component: {fileID: 1387582406}
   - component: {fileID: 1387582408}
   - component: {fileID: 1387582407}
+  - component: {fileID: 1387582409}
+  - component: {fileID: 1387582410}
   m_Layer: 5
   m_Name: PopUp
   m_TagString: Untagged
@@ -6389,7 +6391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 1.5, y: 740}
+  m_AnchoredPosition: {x: 869.93, y: 740}
   m_SizeDelta: {x: 3413, y: 1920}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1387582407
@@ -6430,6 +6432,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387582405}
   m_CullTransparentMesh: 1
+--- !u!95 &1387582409
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387582405}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0093afe8c4d33284ab5814aa436d352d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1387582410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387582405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9500bdc7849784ab2086b4f9faf9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animation: {fileID: 1387582409}
+  MessageText: {fileID: 2038962320}
 --- !u!1 &1398314283
 GameObject:
   m_ObjectHideFlags: 0
@@ -10115,8 +10150,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
