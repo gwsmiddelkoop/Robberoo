@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     [Header("Takedown Properties")]
     public bool inTakeDownRange;
     private GameObject takeDownTarget;
-
+    public int takeDownsAmount = 1;
     [Header("Other References")]
     public GameObject gameOverObject;
     public GameObject exitText;
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color playerColor;
     private bool inExitRange;
+    public bool IsSeeingPlayer { get; set; }
 
     private void Start()
     {
@@ -97,10 +98,12 @@ public class PlayerController : MonoBehaviour
             SceneLoader.Instance.LoadScene(2);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && inTakeDownRange)
+
+        if (Input.GetKeyDown(KeyCode.Q) && inTakeDownRange && !IsSeeingPlayer)
         {
             TakeDown(takeDownTarget);
         }
+
 
         PlayerDirection();
         Cloak();
@@ -108,7 +111,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
 
         if (collision.gameObject.CompareTag("Exit"))
         {
