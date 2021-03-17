@@ -96,6 +96,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("Not enough money!");
         }
     }
@@ -109,6 +110,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("Not enough money!");
         }
     }
@@ -122,6 +124,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("Not enough money!");
         }
     }
@@ -135,6 +138,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("Not enough money!");
         }
     }
@@ -148,6 +152,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("Not enough money!");
         }
     }
@@ -164,6 +169,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("No  " + Item1.itemName + "  to sell!");
         }
     }
@@ -177,6 +183,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("No  " + Item2.itemName + "  to sell!");
         }
     }
@@ -190,6 +197,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("No  " + Item3.itemName + "  to sell!");
         }
     }
@@ -203,6 +211,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("No  " + Item4.itemName + "  to sell!");
         }
     }
@@ -216,6 +225,7 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
+            // Shows a popup message on screen with the given text.
             PopUpMessage.Instance.ShowMessage("No  " + Item5.itemName + "  to sell!");
         }
     }
