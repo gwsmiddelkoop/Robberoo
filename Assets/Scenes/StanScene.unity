@@ -360,6 +360,14 @@ PrefabInstance:
       propertyPath: pickUpTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7859180482320567068, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859180482320567068, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e96622fb2083e841827bdd828887e52, type: 3}
 --- !u!1 &244400510 stripped
@@ -692,7 +700,7 @@ GameObject:
   - component: {fileID: 619187486}
   m_Layer: 0
   m_Name: GuardOne
-  m_TagString: Untagged
+  m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,6 +1160,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 619187486}
     m_Modifications:
+    - target: {fileID: 8363254997055197464, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5701642
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197464, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_Size.y
+      value: 2.913327
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197464, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.0494053
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197464, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.09438956
+      objectReference: {fileID: 0}
     - target: {fileID: 8363254997055197465, guid: 32dd5552536e51a48b30605308e61643, type: 3}
       propertyPath: GrabDist
       value: 0.25
@@ -1230,6 +1254,14 @@ PrefabInstance:
       objectReference: {fileID: 874711965}
     - target: {fileID: 8363254997055197470, guid: 32dd5552536e51a48b30605308e61643, type: 3}
       propertyPath: m_Name
+      value: Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197470, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197470, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_TagString
       value: Guard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
