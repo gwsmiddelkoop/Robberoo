@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private float cloakCooldownCounter;
     private bool inCloakCooldown;
 
+    [Header("Takedown Properties")]
+    public bool inTakeDownRange;
+    private GameObject takeDownTarget;
+
     [Header("Other References")]
     public GameObject gameOverObject;
     public GameObject exitText;
@@ -35,13 +39,14 @@ public class PlayerController : MonoBehaviour
         playerPickUp = GetComponent<PlayerPickup>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // set colors??? stan waar de kanker is dit voor
+        //set UI icon transparent
         cloakColor = cloakObject.GetComponent<Image>().color;
         playerColor = spriteRenderer.color;
 
         // set bools to false
         inCloakCooldown = false;
         inExitRange = false;
+        inTakeDownRange = false;
 
         // set overlays / other stuff to inactive
         gameOverObject.SetActive(false);
@@ -92,6 +97,11 @@ public class PlayerController : MonoBehaviour
             SceneLoader.Instance.LoadScene(2);
         }
 
+        if (Input.GetKeyDown(KeyCode.Q) && inTakeDownRange)
+        {
+            TakeDown(takeDownTarget);
+        }
+
         PlayerDirection();
         Cloak();
     }
@@ -103,6 +113,12 @@ public class PlayerController : MonoBehaviour
             exitText.SetActive(true);
             inExitRange = true;
         }
+
+        if (collision.gameObject.CompareTag("Guard"))
+        {
+            inTakeDownRange = true;
+            takeDownTarget = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -111,6 +127,11 @@ public class PlayerController : MonoBehaviour
         {
             exitText.SetActive(false);
             inExitRange = false;
+        }
+
+        if (collision.gameObject.CompareTag("Guard"))
+        {
+            inTakeDownRange = false;
         }
     }
 
@@ -144,6 +165,14 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.color = playerColor;
             isCloaked = false;
             inCloakCooldown = true;
+        }
+    }
+
+    private void TakeDown(GameObject target)
+    {
+        if (target != null)
+        {
+            target.SetActive(false);
         }
     }
 
