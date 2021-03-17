@@ -1264,6 +1264,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197479, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197479, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363254997055197479, guid: 32dd5552536e51a48b30605308e61643, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32dd5552536e51a48b30605308e61643, type: 3}
 --- !u!4 &1247039678 stripped
