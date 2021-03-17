@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Patrol: {fileID: 0}
   m_Target: {fileID: 0}
+  m_GameOver: {fileID: 0}
+  GrabDist: 0
 --- !u!114 &8363254997055197466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,8 +179,8 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8363254997055197470}
-  m_BodyType: 0
-  m_Simulated: 0
+  m_BodyType: 1
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -189,7 +191,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 0
 --- !u!1 &8363254997645140411
 GameObject:
   m_ObjectHideFlags: 0
