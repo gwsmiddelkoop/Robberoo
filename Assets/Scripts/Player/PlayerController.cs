@@ -99,9 +99,10 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q) && inTakeDownRange && !IsSeeingPlayer)
+        if (Input.GetKeyDown(KeyCode.Q) && inTakeDownRange && !IsSeeingPlayer && takeDownsAmount > 0)
         {
             TakeDown(takeDownTarget);
+            takeDownsAmount--;
         }
 
 
