@@ -13,4 +13,7 @@ public class PlayerInventory : ScriptableObject
     public int Ruby;
 
     public int TotalMoney;
+
+    public bool Level2Unlocked;
+    public bool Level3Unlocked;
 }
