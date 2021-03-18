@@ -45,7 +45,7 @@ public class MarketManager : MonoBehaviour
     public Image TimerResetIcon;
 
     public TextMeshProUGUI TimerTxt;
-    public int timerAmount = 30;
+    public int timerAmount = 60;
     public int rotationSpeed = 40;
 
     private void Awake()
