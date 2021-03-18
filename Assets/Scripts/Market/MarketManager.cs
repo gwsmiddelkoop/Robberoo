@@ -6,6 +6,8 @@ using TMPro;
 
 public class MarketManager : MonoBehaviour
 {
+    public static MarketManager Instance;
+
     [Header("Items")]
     public Item Item1;
     public Item Item2;
@@ -41,6 +43,19 @@ public class MarketManager : MonoBehaviour
     public Image Item4Icon;
     public Image Item5Icon;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+    }
+
     private void Start()
     {
         // Defines all the item names for the market
@@ -56,19 +71,6 @@ public class MarketManager : MonoBehaviour
         Item3Icon.sprite = Item3.Icon;
         Item4Icon.sprite = Item4.Icon;
         Item5Icon.sprite = Item5.Icon;
-
-        // Sets all the item values to a random number
-        Item1.buyValue = Random.Range(6000, 10000);
-        Item2.buyValue = Random.Range(8000, 15000);
-        Item3.buyValue = Random.Range(5000, 7000);
-        Item4.buyValue = Random.Range(5000, 8000);
-        Item5.buyValue = Random.Range(5000, 20000);
-
-        Item1.sellValue = (Item1.buyValue - Random.Range(1000, 4000));
-        Item2.sellValue = (Item2.buyValue - Random.Range(1000, 4000));
-        Item3.sellValue = (Item3.buyValue - Random.Range(1000, 4000));
-        Item4.sellValue = (Item4.buyValue - Random.Range(1000, 4000));
-        Item5.sellValue = (Item5.buyValue - Random.Range(1000, 4000));
 
         // Defines the item selling values
         Item1SellValue.text = string.Format("€" + Item1.sellValue.ToString());
@@ -87,8 +89,35 @@ public class MarketManager : MonoBehaviour
 
     private void Update()
     {
-        // TO DO:
-        // Make the buy and sell values change everyday at a certain time (example: 12:00 UTC), or after a certain given amount of time (example: every hour).
+        if (System.DateTime.Now.Second == 30)
+        {
+            // Sets all the market item values to a random number
+            Item1.buyValue = Random.Range(6000, 10000);
+            Item2.buyValue = Random.Range(8000, 15000);
+            Item3.buyValue = Random.Range(5000, 7000);
+            Item4.buyValue = Random.Range(5000, 8000);
+            Item5.buyValue = Random.Range(5000, 20000);
+
+            Item1.sellValue = (Item1.buyValue - Random.Range(1000, 4000));
+            Item2.sellValue = (Item2.buyValue - Random.Range(1000, 4000));
+            Item3.sellValue = (Item3.buyValue - Random.Range(1000, 4000));
+            Item4.sellValue = (Item4.buyValue - Random.Range(1000, 4000));
+            Item5.sellValue = (Item5.buyValue - Random.Range(1000, 4000));
+
+            // Defines the market item selling values
+            Item1SellValue.text = string.Format("€" + Item1.sellValue.ToString());
+            Item2SellValue.text = string.Format("€" + Item2.sellValue.ToString());
+            Item3SellValue.text = string.Format("€" + Item3.sellValue.ToString());
+            Item4SellValue.text = string.Format("€" + Item4.sellValue.ToString());
+            Item5SellValue.text = string.Format("€" + Item5.sellValue.ToString());
+
+            // Defines the market item buying values
+            Item1BuyValue.text = string.Format("€" + Item1.buyValue.ToString());
+            Item2BuyValue.text = string.Format("€" + Item2.buyValue.ToString());
+            Item3BuyValue.text = string.Format("€" + Item3.buyValue.ToString());
+            Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
+            Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
+        }
     }
 
     #region Item Buy Buttons
