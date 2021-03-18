@@ -42,9 +42,11 @@ public class MarketManager : MonoBehaviour
     public Image Item3Icon;
     public Image Item4Icon;
     public Image Item5Icon;
+    public Image TimerResetIcon;
 
     public TextMeshProUGUI TimerTxt;
     public int timerAmount = 30;
+    public int rotationSpeed = 40;
 
     private void Awake()
     {
@@ -100,8 +102,6 @@ public class MarketManager : MonoBehaviour
             timerAmount = 30;
         }
 
-        TimerTxt.text = string.Format("00:00:{0}", timerAmount);
-
         // When in real life 30 seconds are reached, the market gets updated.
         if (System.DateTime.Now.Second == 30)
         {
@@ -134,6 +134,13 @@ public class MarketManager : MonoBehaviour
             Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
             Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
         }
+
+        // Updates the timer text.
+        TimerTxt.text = string.Format("00:00:{0}", timerAmount);
+
+        // Rotates the given icon a certain degrees on the Z axis.
+        TimerResetIcon.transform.Rotate(Vector3.back, rotationSpeed * Time.deltaTime);
+
     }
 
     IEnumerator UpdateTimer()
