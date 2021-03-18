@@ -42,6 +42,10 @@ public class LevelButtonManager : MonoBehaviour
             playerInventory.Level2Unlocked = true;
             playerInventory.TotalMoney -= levelPrice;
         }
+        else
+        {
+            PopUpMessage.Instance.ShowMessage("Not enough money!");
+        }
     }
 
     public void BuyLevel3()
@@ -52,6 +56,10 @@ public class LevelButtonManager : MonoBehaviour
             buyText3.SetActive(false);
             playerInventory.Level3Unlocked = true;
             playerInventory.TotalMoney -= levelPrice;
+        }
+        else
+        {
+            PopUpMessage.Instance.ShowMessage("Not enough money!");
         }
     }
 }
