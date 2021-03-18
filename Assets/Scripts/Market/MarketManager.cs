@@ -43,6 +43,9 @@ public class MarketManager : MonoBehaviour
     public Image Item4Icon;
     public Image Item5Icon;
 
+    public TextMeshProUGUI TimerTxt;
+    public int timerAmount = 30;
+
     private void Awake()
     {
         if (Instance == null)
@@ -58,6 +61,8 @@ public class MarketManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine("UpdateTimer");
+
         // Defines all the item names for the market
         Item1Name.text = Item1.itemName;
         Item2Name.text = Item2.itemName;
@@ -89,8 +94,19 @@ public class MarketManager : MonoBehaviour
 
     private void Update()
     {
+        // Sets the timer to 30 when in real life a new minute has started.
+        if (System.DateTime.Now.Second == 0)
+        {
+            timerAmount = 30;
+        }
+
+        TimerTxt.text = string.Format("00:00:{0}", timerAmount);
+
+        // When in real life 30 seconds are reached, the market gets updated.
         if (System.DateTime.Now.Second == 30)
         {
+            timerAmount = 60;
+
             // Sets all the market item values to a random number
             Item1.buyValue = Random.Range(6000, 10000);
             Item2.buyValue = Random.Range(8000, 15000);
@@ -117,6 +133,16 @@ public class MarketManager : MonoBehaviour
             Item3BuyValue.text = string.Format("€" + Item3.buyValue.ToString());
             Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
             Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
+        }
+    }
+
+    IEnumerator UpdateTimer()
+    {
+        while (true)
+        {
+            // Takes one from the timer every 1 second.
+            yield return new WaitForSeconds(1);
+            timerAmount--;
         }
     }
 
