@@ -64,6 +64,7 @@ public class MarketManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine("UpdateTimer");
+        timerAmount = 60;
 
         // Defines all the item names for the market
         Item1Name.text = Item1.itemName;
@@ -97,9 +98,9 @@ public class MarketManager : MonoBehaviour
     private void Update()
     {
         // Sets the timer to 30 when in real life a new minute has started.
-        if (System.DateTime.Now.Second == 0)
+        if (System.DateTime.Now.Second == 1)
         {
-            timerAmount = 30;
+            timerAmount = 29;
         }
 
         // When in real life 30 seconds are reached, the market gets updated.
