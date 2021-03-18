@@ -85,6 +85,12 @@ public class MarketManager : MonoBehaviour
         Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
     }
 
+    private void Update()
+    {
+        // TO DO:
+        // Make the buy and sell values change everyday at a certain time (example: 12:00 UTC), or after a certain given amount of time (example: every hour).
+    }
+
     #region Item Buy Buttons
     public void BuyItem1()
     {
