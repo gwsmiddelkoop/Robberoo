@@ -96,7 +96,7 @@ public class MarketManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine("UpdateTimer");
-        timerAmount = 60;
+        timerAmount = 30;
 
         #region Defining Item Names, Icons, and Values
         // Defines all the item names for the market
@@ -138,9 +138,9 @@ public class MarketManager : MonoBehaviour
         }
 
         // When in real life 30 seconds are reached, the market gets updated.
-        if (System.DateTime.Now.Second == 30)
+        if (System.DateTime.Now.Second == 30 || System.DateTime.Now.Second == 0)
         {
-            timerAmount = 60;
+            timerAmount = 30;
 
             UpdateSavedValues();
             UpdateValues();
