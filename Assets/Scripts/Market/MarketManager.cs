@@ -297,6 +297,92 @@ public class MarketManager : MonoBehaviour
             }
             #endregion
 
+            #region Update sell-tradingmarker arrow for Item 1
+            if (Item1SavedSellValue > Item1.sellValue)
+            {
+                // If the old price is higher than the new sell price, the given sprite is shown.
+                Item1SellChangeIcon.sprite = SellValueChangeMin;
+            }
+            else if (Item1SavedSellValue < Item1.sellValue)
+            {
+                // If the old price is lower than the new sell price, the given sprite is shown.
+                Item1SellChangeIcon.sprite = SellValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new sell price, the given sprite is shown.
+                Item1SellChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update sell-tradingmarker arrow for Item 2
+            if (Item2SavedSellValue > Item2.sellValue)
+            {
+                // If the old price is higher than the new sell price, the given sprite is shown.
+                Item2SellChangeIcon.sprite = SellValueChangeMin;
+            }
+            else if (Item2SavedSellValue < Item2.sellValue)
+            {
+                // If the old price is lower than the new sell price, the given sprite is shown.
+                Item2SellChangeIcon.sprite = SellValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new sell price, the given sprite is shown.
+                Item2SellChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update sell-tradingmarker arrow for Item 3
+            if (Item3SavedSellValue > Item3.sellValue)
+            {
+                // If the old price is higher than the new sell price, the given sprite is shown.
+                Item3SellChangeIcon.sprite = SellValueChangeMin;
+            }
+            else if (Item3SavedSellValue < Item3.sellValue)
+            {
+                // If the old price is lower than the new sell price, the given sprite is shown.
+                Item3SellChangeIcon.sprite = SellValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new sell price, the given sprite is shown.
+                Item3SellChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update sell-tradingmarker arrow for Item 4
+            if (Item4SavedSellValue > Item4.sellValue)
+            {
+                // If the old price is higher than the new sell price, the given sprite is shown.
+                Item4SellChangeIcon.sprite = SellValueChangeMin;
+            }
+            else if (Item4SavedSellValue < Item4.sellValue)
+            {
+                // If the old price is lower than the new sell price, the given sprite is shown.
+                Item4SellChangeIcon.sprite = SellValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new sell price, the given sprite is shown.
+                Item4SellChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update sell-tradingmarker arrow for Item 5
+            if (Item5SavedSellValue > Item5.sellValue)
+            {
+                // If the old price is higher than the new sell price, the given sprite is shown.
+                Item5SellChangeIcon.sprite = SellValueChangeMin;
+            }
+            else if (Item5SavedSellValue < Item5.sellValue)
+            {
+                // If the old price is lower than the new sell price, the given sprite is shown.
+                Item5SellChangeIcon.sprite = SellValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new sell price, the given sprite is shown.
+                Item5SellChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+
             oneTimeCalledRanks = true;
         }
     }
