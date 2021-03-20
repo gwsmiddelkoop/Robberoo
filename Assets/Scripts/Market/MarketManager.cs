@@ -42,11 +42,43 @@ public class MarketManager : MonoBehaviour
     public Image Item3Icon;
     public Image Item4Icon;
     public Image Item5Icon;
+    public Sprite SellValueChangePlus;
+    public Sprite SellValueChangeMin;
+    public Sprite BuyValueChangePlus;
+    public Sprite BuyValueChangeMin;
+    public Sprite ValueChangeSame;
+
+    public Image Item1BuyChangeIcon;
+    public Image Item2BuyChangeIcon;
+    public Image Item3BuyChangeIcon;
+    public Image Item4BuyChangeIcon;
+    public Image Item5BuyChangeIcon;
+
+    public Image Item1SellChangeIcon;
+    public Image Item2SellChangeIcon;
+    public Image Item3SellChangeIcon;
+    public Image Item4SellChangeIcon;
+    public Image Item5SellChangeIcon;
+
     public Image TimerResetIcon;
 
     public TextMeshProUGUI TimerTxt;
     public int timerAmount = 60;
     public int rotationSpeed = 40;
+    private bool oneTimeCalled = false;
+    private bool oneTimeCalledRanks = false;
+
+    private int Item1SavedBuyValue;
+    private int Item2SavedBuyValue;
+    private int Item3SavedBuyValue;
+    private int Item4SavedBuyValue;
+    private int Item5SavedBuyValue;
+
+    private int Item1SavedSellValue;
+    private int Item2SavedSellValue;
+    private int Item3SavedSellValue;
+    private int Item4SavedSellValue;
+    private int Item5SavedSellValue;
 
     private void Awake()
     {
@@ -66,6 +98,7 @@ public class MarketManager : MonoBehaviour
         StartCoroutine("UpdateTimer");
         timerAmount = 60;
 
+        #region Defining Item Names, Icons, and Values
         // Defines all the item names for the market
         Item1Name.text = Item1.itemName;
         Item2Name.text = Item2.itemName;
@@ -80,19 +113,20 @@ public class MarketManager : MonoBehaviour
         Item4Icon.sprite = Item4.Icon;
         Item5Icon.sprite = Item5.Icon;
 
-        // Defines the item selling values
+        // Defines the item selling values and transforms it to text
         Item1SellValue.text = string.Format("€" + Item1.sellValue.ToString());
         Item2SellValue.text = string.Format("€" + Item2.sellValue.ToString());
         Item3SellValue.text = string.Format("€" + Item3.sellValue.ToString());
         Item4SellValue.text = string.Format("€" + Item4.sellValue.ToString());
         Item5SellValue.text = string.Format("€" + Item5.sellValue.ToString());
 
-        // Defines the item buying values
+        // Defines the item buying values and transforms it to text
         Item1BuyValue.text = string.Format("€" + Item1.buyValue.ToString());
         Item2BuyValue.text = string.Format("€" + Item2.buyValue.ToString());
         Item3BuyValue.text = string.Format("€" + Item3.buyValue.ToString());
         Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
         Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
+        #endregion
     }
 
     private void Update()
@@ -108,32 +142,9 @@ public class MarketManager : MonoBehaviour
         {
             timerAmount = 60;
 
-            // Sets all the market item values to a random number
-            Item1.buyValue = Random.Range(6000, 10000);
-            Item2.buyValue = Random.Range(8000, 15000);
-            Item3.buyValue = Random.Range(5000, 7000);
-            Item4.buyValue = Random.Range(5000, 8000);
-            Item5.buyValue = Random.Range(5000, 20000);
-
-            Item1.sellValue = (Item1.buyValue - Random.Range(1000, 4000));
-            Item2.sellValue = (Item2.buyValue - Random.Range(1000, 4000));
-            Item3.sellValue = (Item3.buyValue - Random.Range(1000, 4000));
-            Item4.sellValue = (Item4.buyValue - Random.Range(1000, 4000));
-            Item5.sellValue = (Item5.buyValue - Random.Range(1000, 4000));
-
-            // Defines the market item selling values
-            Item1SellValue.text = string.Format("€" + Item1.sellValue.ToString());
-            Item2SellValue.text = string.Format("€" + Item2.sellValue.ToString());
-            Item3SellValue.text = string.Format("€" + Item3.sellValue.ToString());
-            Item4SellValue.text = string.Format("€" + Item4.sellValue.ToString());
-            Item5SellValue.text = string.Format("€" + Item5.sellValue.ToString());
-
-            // Defines the market item buying values
-            Item1BuyValue.text = string.Format("€" + Item1.buyValue.ToString());
-            Item2BuyValue.text = string.Format("€" + Item2.buyValue.ToString());
-            Item3BuyValue.text = string.Format("€" + Item3.buyValue.ToString());
-            Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
-            Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
+            UpdateSavedValues();
+            UpdateValues();
+            Invoke("UpdateTradeRanks", 1.5f);
         }
 
         // Updates the timer text.
@@ -142,6 +153,158 @@ public class MarketManager : MonoBehaviour
         // Rotates the given icon a certain degrees on the Z axis.
         TimerResetIcon.transform.Rotate(Vector3.back, rotationSpeed * Time.deltaTime);
 
+    }
+
+    public void UpdateValues()
+    {
+        // Sets all the market item values to a random number
+        Item1.buyValue = Random.Range(6000, 10000);
+        Item2.buyValue = Random.Range(8000, 15000);
+        Item3.buyValue = Random.Range(5000, 7000);
+        Item4.buyValue = Random.Range(5000, 8000);
+        Item5.buyValue = Random.Range(5000, 20000);
+
+        Item1.sellValue = (Item1.buyValue - Random.Range(1000, 4000));
+        Item2.sellValue = (Item2.buyValue - Random.Range(1000, 4000));
+        Item3.sellValue = (Item3.buyValue - Random.Range(1000, 4000));
+        Item4.sellValue = (Item4.buyValue - Random.Range(1000, 4000));
+        Item5.sellValue = (Item5.buyValue - Random.Range(1000, 4000));
+
+        // Defines the market item selling values
+        Item1SellValue.text = string.Format("€" + Item1.sellValue.ToString());
+        Item2SellValue.text = string.Format("€" + Item2.sellValue.ToString());
+        Item3SellValue.text = string.Format("€" + Item3.sellValue.ToString());
+        Item4SellValue.text = string.Format("€" + Item4.sellValue.ToString());
+        Item5SellValue.text = string.Format("€" + Item5.sellValue.ToString());
+
+        // Defines the market item buying values
+        Item1BuyValue.text = string.Format("€" + Item1.buyValue.ToString());
+        Item2BuyValue.text = string.Format("€" + Item2.buyValue.ToString());
+        Item3BuyValue.text = string.Format("€" + Item3.buyValue.ToString());
+        Item4BuyValue.text = string.Format("€" + Item4.buyValue.ToString());
+        Item5BuyValue.text = string.Format("€" + Item5.buyValue.ToString());
+    }
+
+    public void UpdateSavedValues()
+    {
+        if (!oneTimeCalled)
+        {
+            // Sets all the given values to the current Item buy value, before updating it on the market.
+            Item1SavedBuyValue = Item1.buyValue;
+            Item2SavedBuyValue = Item2.buyValue;
+            Item3SavedBuyValue = Item3.buyValue;
+            Item4SavedBuyValue = Item4.buyValue;
+            Item5SavedBuyValue = Item5.buyValue;
+
+            Item1SavedSellValue = Item1.sellValue;
+            Item2SavedSellValue = Item2.sellValue;
+            Item3SavedSellValue = Item3.sellValue;
+            Item4SavedSellValue = Item4.sellValue;
+            Item5SavedSellValue = Item5.sellValue;
+
+            oneTimeCalled = true;
+            Invoke("ResetOneTime", 30);
+        }
+    }
+
+    public void UpdateTradeRanks()
+    {
+        if (!oneTimeCalledRanks)
+        {
+            #region Update buy-tradingmarker arrow for Item 1
+            if (Item1SavedBuyValue > Item1.buyValue)
+            {
+                // If the old price is higher than the new buy price, the given sprite is shown.
+                Item1BuyChangeIcon.sprite = BuyValueChangeMin;
+            }
+            else if (Item1SavedBuyValue < Item1.buyValue)
+            {
+                // If the old price is lower than the new buy price, the given sprite is shown.
+                Item1BuyChangeIcon.sprite = BuyValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new buy price, the given sprite is shown.
+                Item1BuyChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update buy-tradingmarker arrow for Item 2
+            if (Item2SavedBuyValue > Item2.buyValue)
+            {
+                // If the old price is higher than the new buy price, the given sprite is shown.
+                Item2BuyChangeIcon.sprite = BuyValueChangeMin;
+            }
+            else if (Item2SavedBuyValue < Item2.buyValue)
+            {
+                // If the old price is lower than the new buy price, the given sprite is shown.
+                Item2BuyChangeIcon.sprite = BuyValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new buy price, the given sprite is shown.
+                Item2BuyChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update buy-tradingmarker arrow for Item 3
+            if (Item3SavedBuyValue > Item3.buyValue)
+            {
+                // If the old price is higher than the new buy price, the given sprite is shown.
+                Item3BuyChangeIcon.sprite = BuyValueChangeMin;
+            }
+            else if (Item3SavedBuyValue < Item3.buyValue)
+            {
+                // If the old price is lower than the new buy price, the given sprite is shown.
+                Item3BuyChangeIcon.sprite = BuyValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new buy price, the given sprite is shown.
+                Item3BuyChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update buy-tradingmarker arrow for Item 4
+            if (Item4SavedBuyValue > Item4.buyValue)
+            {
+                // If the old price is higher than the new buy price, the given sprite is shown.
+                Item4BuyChangeIcon.sprite = BuyValueChangeMin;
+            }
+            else if (Item4SavedBuyValue < Item4.buyValue)
+            {
+                // If the old price is lower than the new buy price, the given sprite is shown.
+                Item4BuyChangeIcon.sprite = BuyValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new buy price, the given sprite is shown.
+                Item4BuyChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+            #region Update buy-tradingmarker arrow for Item 5
+            if (Item5SavedBuyValue > Item5.buyValue)
+            {
+                // If the old price is higher than the new buy price, the given sprite is shown.
+                Item5BuyChangeIcon.sprite = BuyValueChangeMin;
+            }
+            else if (Item5SavedBuyValue < Item5.buyValue)
+            {
+                // If the old price is lower than the new buy price, the given sprite is shown.
+                Item5BuyChangeIcon.sprite = BuyValueChangePlus;
+            }
+            else
+            {
+                // If the old price is even as the new buy price, the given sprite is shown.
+                Item5BuyChangeIcon.sprite = ValueChangeSame;
+            }
+            #endregion
+
+            oneTimeCalledRanks = true;
+        }
+    }
+
+    public void ResetOneTime()
+    {
+        oneTimeCalled = false;
+        oneTimeCalledRanks = false;
     }
 
     IEnumerator UpdateTimer()
