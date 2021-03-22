@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     public bool inTakeDownRange;
     private GameObject takeDownTarget;
     public int takeDownsAmount = 1;
+    public GameObject takeDownObject;
+    public TMP_Text takeDownAmountTxt;
+    private Color takeDownColor;
+
     [Header("Other References")]
     public GameObject gameOverObject;
     public GameObject exitText;
@@ -40,9 +44,11 @@ public class PlayerController : MonoBehaviour
         playerPickUp = GetComponent<PlayerPickup>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        //set UI icon transparent
+        //set UI stuff
         cloakColor = cloakObject.GetComponent<Image>().color;
         playerColor = spriteRenderer.color;
+        takeDownColor = takeDownObject.GetComponent<Image>().color;
+        takeDownAmountTxt.text = ("" + takeDownsAmount);
 
         // set bools to false
         inCloakCooldown = false;
@@ -92,6 +98,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (takeDownsAmount <= 0)
+        {
+            takeDownColor.a = 0.5f;
+            takeDownObject.GetComponent<Image>().color = takeDownColor;
+        }
+
         if (Input.GetKeyDown(KeyCode.T) && inExitRange)
         {
             ConvertToInventory();
@@ -103,6 +115,7 @@ public class PlayerController : MonoBehaviour
         {
             TakeDown(takeDownTarget);
             takeDownsAmount--;
+            takeDownAmountTxt.text = ("" + takeDownsAmount);
         }
 
 
