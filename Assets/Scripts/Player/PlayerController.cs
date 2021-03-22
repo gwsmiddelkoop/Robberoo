@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public GameObject takeDownObject;
     public TMP_Text takeDownAmountTxt;
     private Color takeDownColor;
+    public GameObject takeDownText;
 
     [Header("Other References")]
     public GameObject gameOverObject;
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
         cloakColor = cloakObject.GetComponent<Image>().color;
         playerColor = spriteRenderer.color;
         takeDownColor = takeDownObject.GetComponent<Image>().color;
-        takeDownAmountTxt.text = ("" + takeDownsAmount);
+        takeDownAmountTxt.text = ("" + takeDownsAmount);       
 
         // set bools to false
         inCloakCooldown = false;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
         gameOverObject.SetActive(false);
         exitText.SetActive(false);
         cloakCooldownTimerUI.SetActive(false);
+        takeDownText.SetActive(false);
 
         // reset timers
         cloakCooldownCounter = cloakCooldownTime;
@@ -98,18 +100,26 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (takeDownsAmount <= 0)
-        {
-            takeDownColor.a = 0.5f;
-            takeDownObject.GetComponent<Image>().color = takeDownColor;
-        }
-
         if (Input.GetKeyDown(KeyCode.T) && inExitRange)
         {
             ConvertToInventory();
             SceneLoader.Instance.LoadScene(2);
         }
 
+        if (takeDownsAmount <= 0)
+        {
+            takeDownColor.a = 0.5f;
+            takeDownObject.GetComponent<Image>().color = takeDownColor;
+        }
+
+        if (inTakeDownRange && !IsSeeingPlayer && takeDownsAmount > 0)
+        {
+            takeDownText.SetActive(true);
+        }
+        else
+        {
+            takeDownText.SetActive(false);
+        }
 
         if (Input.GetKeyDown(KeyCode.Q) && inTakeDownRange && !IsSeeingPlayer && takeDownsAmount > 0)
         {
