@@ -144,7 +144,7 @@ public class MarketManager : MonoBehaviour
 
             UpdateSavedValues();
             UpdateValues();
-            Invoke("UpdateTradeRanks", 1.5f);
+            Invoke("UpdateTradeRanks", 1.75f);
         }
 
         // Updates the timer text.
