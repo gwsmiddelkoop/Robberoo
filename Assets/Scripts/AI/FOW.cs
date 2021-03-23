@@ -18,9 +18,12 @@ public class FOW : MonoBehaviour
     void FindVisiblePlayer()
     {
         InRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius);
-
+        
         visiblePlayer.Clear();
-        GetComponent<AIPatrolModus>().IsPatrolModus = true;//
+
+        //if (GetComponent<AIFollowModus>().GetLastLocation == true)
+        //    GetComponent<AIPatrolModus>().IsPatrolModus = true;
+
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {
@@ -39,12 +42,9 @@ public class FOW : MonoBehaviour
                 {
                     if (Physics2D.Raycast(transform.position, dirTarget, distancePlayer, playermask))
                     {
-                        if (playerController.isCloaked == false)
-                        {
-                            playerController.IsSeeingPlayer = true;
-                            visiblePlayer.Add(player);
-                            GetComponent<AIPatrolModus>().IsPatrolModus = false;
-                        }
+                        playerController.IsSeeingPlayer = true;
+                        visiblePlayer.Add(player);
+                        GetComponent<AIPatrolModus>().IsPatrolModus = false;
                     }
                 }
             }

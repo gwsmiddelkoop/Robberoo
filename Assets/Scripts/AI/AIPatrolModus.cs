@@ -14,9 +14,13 @@ public class AIPatrolModus : MonoBehaviour
     private bool BackWards;
 
     [Header("WatchAround")]
+    [SerializeField] private LayerMask m_Layer;
+    public bool LeftOrRight;
+    public bool islooking;
     private float Timer;
-    private float EndOfTimer;
-    private float z;
+    private float Timer2;
+    public float EndOfTimer;
+    private float Zas;
 
     void Update()
     {
@@ -39,6 +43,10 @@ public class AIPatrolModus : MonoBehaviour
         {
             RondKijken();
         }
+        else
+        {
+            islooking = false;
+        }
 
         if (m_PatrolPointIndex == m_PatrolPoints.Length)
         {
@@ -52,14 +60,24 @@ public class AIPatrolModus : MonoBehaviour
             m_PatrolPointIndex = 0;
         }
     }
-    void RondKijken()
+    public void RondKijken()
     {
+        islooking = true;
         Timer += Time.deltaTime;
-        EndOfTimer = Random.Range(10, 20);
+        if (EndOfTimer == 0)
+            EndOfTimer = Random.Range(10, 20);
 
-        z += Time.deltaTime * 3;
+        Zas += Time.deltaTime * 3;
 
-        transform.rotation = Quaternion.Euler(0, 0, z);
+        if (LeftOrRight == true)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, Zas);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -Zas);
+        }
+
 
         if (Timer > EndOfTimer)
         {
@@ -69,10 +87,12 @@ public class AIPatrolModus : MonoBehaviour
             }
             else
             {
-
                 m_PatrolPointIndex -= 1;
             }
+            EndOfTimer = 0;
             Timer = 0;
+            IsPatrolModus = true;
         }
     }
 }
+
