@@ -41,10 +41,12 @@ public class AIPatrolModus : MonoBehaviour
 
         if (transform.position == m_PatrolPoints[m_PatrolPointIndex].transform.position)
         {
+            Debug.Log("s");
             RondKijken();
         }
         else
         {
+            Debug.Log("sss");
             islooking = false;
         }
 
