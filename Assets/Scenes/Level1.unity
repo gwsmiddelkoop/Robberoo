@@ -599,6 +599,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4897156824586247644, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4897156825697323083, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1044,6 +1048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3567583620392197611, guid: 57b102261e8779c4ba24d53934d10cf2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1260256916}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57b102261e8779c4ba24d53934d10cf2, type: 3}
 --- !u!1 &1257468552 stripped
