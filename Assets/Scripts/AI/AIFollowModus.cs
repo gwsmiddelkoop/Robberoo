@@ -20,9 +20,9 @@ public class AIFollowModus : MonoBehaviour
         m_Target = GameObject.Find("Player");
         m_Patrol = GetComponent<AIPatrolModus>();
         fow = GetComponent<FOW>();
-        m_GameOver = GameObject.Find("Death Menu");
+        m_GameOver = GameObject.Find("UI").GetComponent<Transform>().transform.FindChild("Death Menu").gameObject;
     }
-
+        
     private void Update()
     {
         if (m_Patrol.IsPatrolModus == false)
