@@ -408,6 +408,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2069876646}
     - target: {fileID: 8465016707929518346, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: fow
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465016707929518346, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
       propertyPath: m_GameOver
       value: 
       objectReference: {fileID: 0}
