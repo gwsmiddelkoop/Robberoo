@@ -22,7 +22,9 @@ public class AIPatrolModus : MonoBehaviour
     public float EndOfTimer;
     private float Zas;
     [SerializeField] private int[] m_WichSide;
+    [SerializeField] private float[] m_WatchSpeed;
     private int m_WichSideIndex;
+    private int m_WatchSpeedIndex;
 
     void Update()
     {
@@ -55,6 +57,7 @@ public class AIPatrolModus : MonoBehaviour
             BackWards = true;
             m_PatrolPointIndex -= 1;
             m_WichSideIndex -= 1;
+            m_WatchSpeedIndex -= 1;
         }
 
         if (m_PatrolPointIndex <= 0)
@@ -62,16 +65,18 @@ public class AIPatrolModus : MonoBehaviour
             BackWards = false;
             m_PatrolPointIndex = 0;
             m_WichSideIndex = 0;
+            m_WatchSpeedIndex = 0;
         }
     }
     public void RondKijken()
     {
         islooking = true;
         Timer += Time.deltaTime;
+
         if (EndOfTimer == 0)
             EndOfTimer = Random.Range(10, 20);
 
-        Zas += Time.deltaTime * 3;
+        Zas += Time.deltaTime * m_WatchSpeed[m_WatchSpeedIndex];
 
 
         if (m_WichSide[m_WichSideIndex] == 1)
@@ -99,11 +104,13 @@ public class AIPatrolModus : MonoBehaviour
             {
                 m_PatrolPointIndex += 1;
                 m_WichSideIndex += 1;
+                m_WatchSpeedIndex += 1;
             }
             else
             {
                 m_PatrolPointIndex -= 1;
                 m_WichSideIndex -= 1;
+                m_WatchSpeedIndex -= 1;
             }
             EndOfTimer = 0;
             Timer = 0;
