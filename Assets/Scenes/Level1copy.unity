@@ -2132,6 +2132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4950554844359201295, guid: dd5eaf83a784a84479356513ddd0a5d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4950554844359201298, guid: dd5eaf83a784a84479356513ddd0a5d1, type: 3}
       propertyPath: m_Name
       value: ExitPanel
