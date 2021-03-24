@@ -20,3 +20,5 @@ MonoBehaviour:
   TotalMoney: 0
   Level2Unlocked: 0
   Level3Unlocked: 0
+  TakedownsAmount: 1
+  UpgradeCost: 100000

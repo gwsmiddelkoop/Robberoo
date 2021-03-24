@@ -16,4 +16,7 @@ public class PlayerInventory : ScriptableObject
 
     public bool Level2Unlocked;
     public bool Level3Unlocked;
+
+    public int TakedownsAmount = 1;
+    public int UpgradeCost = 100000;
 }

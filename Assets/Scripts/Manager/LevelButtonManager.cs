@@ -9,7 +9,9 @@ public class LevelButtonManager : MonoBehaviour
     public GameObject buyButton3;
     public GameObject buyText2;
     public GameObject buyText3;
+    public GameObject upgradeButton;
     public TextMeshProUGUI totalMoneyTxt;
+    public TextMeshProUGUI upgradeCostTxt;
     public PlayerInventory playerInventory;
     public int levelPrice = 100000;
 
@@ -31,6 +33,12 @@ public class LevelButtonManager : MonoBehaviour
     private void Update()
     {
         totalMoneyTxt.text = string.Format("Total Cash: €{0}", playerInventory.TotalMoney);
+
+        if (playerInventory.TakedownsAmount >3)
+        {
+            upgradeButton.SetActive(false);
+            upgradeCostTxt.text = ("MAXED OUT");
+        }
     }
 
     public void BuyLevel2()

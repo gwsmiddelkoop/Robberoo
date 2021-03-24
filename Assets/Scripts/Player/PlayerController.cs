@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        // set default vallues
+        takeDownsAmount = playerInventory.TakedownsAmount;
+        
         // instantiate
         playerPickUp = GetComponent<PlayerPickup>();
         spriteRenderer = GetComponent<SpriteRenderer>();
