@@ -52,6 +52,14 @@ public class AIPatrolModus : MonoBehaviour
             islooking = false;
         }
 
+        for (int i = 0; i < m_WatchSpeed.Length; i++)
+        {
+            if(m_WatchSpeed[i] == 0)
+            {
+                m_WatchSpeed[i] = 5;
+            }
+        }
+
         if (m_PatrolPointIndex == m_PatrolPoints.Length)
         {
             BackWards = true;
