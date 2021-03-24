@@ -2458,6 +2458,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 280779609879007504, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474028968495691454, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2550096006646757837, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2507,6 +2515,26 @@ PrefabInstance:
       value: Guard
       objectReference: {fileID: 0}
     - target: {fileID: 5160434577911123655, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_WichSide.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160434577911123655, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_WichSide.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160434577911123655, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_WichSide.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160434577911123655, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_WichSide.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160434577911123655, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_WichSide.Array.data[3]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160434577911123655, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
       propertyPath: m_PatrolPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1421885864}
@@ -2522,6 +2550,10 @@ PrefabInstance:
       propertyPath: m_PatrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 2016872602}
+    - target: {fileID: 7318808491547675908, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8465016707929518346, guid: 75fed0afdda0cbf418fe6203c2ba5e77, type: 3}
       propertyPath: m_GameOver
       value: 

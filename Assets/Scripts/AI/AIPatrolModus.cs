@@ -21,6 +21,8 @@ public class AIPatrolModus : MonoBehaviour
     private float Timer2;
     public float EndOfTimer;
     private float Zas;
+    [SerializeField] private int[] m_WichSide;
+    private int m_WichSideIndex;
 
     void Update()
     {
@@ -39,14 +41,12 @@ public class AIPatrolModus : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, m_PatrolPoints[m_PatrolPointIndex].transform.position, m_MoveSpeed * Time.deltaTime);
 
-        if (transform.position == m_PatrolPoints[m_PatrolPointIndex].transform.position)
+        if (transform.position == new Vector3(m_PatrolPoints[m_PatrolPointIndex].transform.position.x, m_PatrolPoints[m_PatrolPointIndex].transform.position.y, transform.position.z))
         {
-            Debug.Log("s");
             RondKijken();
         }
         else
         {
-            Debug.Log("sss");
             islooking = false;
         }
 
@@ -71,6 +71,16 @@ public class AIPatrolModus : MonoBehaviour
 
         Zas += Time.deltaTime * 3;
 
+
+        if (m_WichSide[m_WichSideIndex] == 1)
+        {
+            LeftOrRight = true;
+        }
+        else if (m_WichSide[m_WichSideIndex] == 2)
+        {
+            LeftOrRight = false;
+        }
+
         if (LeftOrRight == true)
         {
             transform.rotation = Quaternion.Euler(0, 0, Zas);
@@ -86,10 +96,12 @@ public class AIPatrolModus : MonoBehaviour
             if (BackWards == false)
             {
                 m_PatrolPointIndex += 1;
+                m_WichSideIndex += 1;
             }
             else
             {
                 m_PatrolPointIndex -= 1;
+                m_WichSideIndex -= 1;
             }
             EndOfTimer = 0;
             Timer = 0;
