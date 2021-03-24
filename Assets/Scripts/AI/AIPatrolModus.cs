@@ -54,12 +54,14 @@ public class AIPatrolModus : MonoBehaviour
         {
             BackWards = true;
             m_PatrolPointIndex -= 1;
+            m_WichSideIndex -= 1;
         }
 
         if (m_PatrolPointIndex <= 0)
         {
             BackWards = false;
             m_PatrolPointIndex = 0;
+            m_WichSideIndex = 0;
         }
     }
     public void RondKijken()
