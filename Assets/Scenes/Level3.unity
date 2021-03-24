@@ -319,6 +319,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4897156824732201133, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2028064267}
+    - target: {fileID: 4897156824732201133, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897156825468879598, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2028064267}
+    - target: {fileID: 4897156825468879598, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897156825468879598, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4897156825697323083, guid: 7505187ff6ad99f4aaf768954fe4c307, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1540,3 +1560,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff0d05b7520166d428e11879c1ad7080, type: 3}
+--- !u!114 &2028064267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1904774944140125455, guid: ff0d05b7520166d428e11879c1ad7080, type: 3}
+  m_PrefabInstance: {fileID: 2028064266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a7828297ab09544965fe8c827825aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
