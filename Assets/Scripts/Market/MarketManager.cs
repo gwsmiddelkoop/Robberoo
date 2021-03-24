@@ -152,7 +152,6 @@ public class MarketManager : MonoBehaviour
 
         // Rotates the given icon a certain degrees on the Z axis.
         TimerResetIcon.transform.Rotate(Vector3.back, rotationSpeed * Time.deltaTime);
-
     }
 
     public void UpdateValues()
