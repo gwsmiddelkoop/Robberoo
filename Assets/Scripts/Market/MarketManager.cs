@@ -96,7 +96,7 @@ public class MarketManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine("UpdateTimer");
-        timerAmount = 30;
+        timerAmount = 60;
 
         #region Defining Item Names, Icons, and Values
         // Defines all the item names for the market
@@ -138,9 +138,9 @@ public class MarketManager : MonoBehaviour
         }
 
         // When in real life 30 seconds are reached, the market gets updated.
-        if (System.DateTime.Now.Second == 30 || System.DateTime.Now.Second == 0)
+        if (System.DateTime.Now.Second == 30)
         {
-            timerAmount = 30;
+            timerAmount = 60;
 
             UpdateSavedValues();
             UpdateValues();
@@ -152,7 +152,6 @@ public class MarketManager : MonoBehaviour
 
         // Rotates the given icon a certain degrees on the Z axis.
         TimerResetIcon.transform.Rotate(Vector3.back, rotationSpeed * Time.deltaTime);
-
     }
 
     public void UpdateValues()
