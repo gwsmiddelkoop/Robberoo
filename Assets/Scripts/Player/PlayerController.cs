@@ -105,8 +105,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T) && inExitRange)
         {
-            ConvertToInventory();
-            SceneLoader.Instance.LoadScene(2);
+            // Calls the IsExtracting function from the given script.
+            ExtractionAnim.Instance.IsExtracting();
+
+            // Calls the given function after the given seconds (index),
+            Invoke("ConvertToInventory", 1);
         }
 
         if (takeDownsAmount <= 0)
@@ -220,5 +223,6 @@ public class PlayerController : MonoBehaviour
         playerInventory.Gold += InventoryAdder.instance.grabbedGold;
         playerInventory.Pearl += InventoryAdder.instance.grabbedPearls;
         playerInventory.Ruby += InventoryAdder.instance.grabbedRubys;
+        SceneLoader.Instance.LoadScene(2);
     }
 }
