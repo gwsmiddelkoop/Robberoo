@@ -54,7 +54,7 @@ public class AIPatrolModus : MonoBehaviour
 
         for (int i = 0; i < m_WatchSpeed.Length; i++)
         {
-            if(m_WatchSpeed[i] == 0)
+            if(m_WatchSpeed[i] == 0 || m_WatchSpeed[i] == 3)
             {
                 m_WatchSpeed[i] = 5;
             }
